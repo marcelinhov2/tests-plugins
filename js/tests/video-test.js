@@ -9,17 +9,16 @@ function init_player(){
     "preload": "auto" 
   });
 
-  // initCuepoints()
+  cuepoints()
 }
 
-function initCuepoints(){
-  cuepoint.init();
-
-  console.log(cuepoint)
-
+function cuepoints(){
   $('.cuepoints a').click(function(event){
     event.preventDefault() 
-    cuepoint.setTime(40)
+    timestamp = $(event.currentTarget).attr('href').replace('#', '')
+    timestamp = parseInt(timestamp)
+
+    myPlayer.currentTime(timestamp)
   });
 }
 
